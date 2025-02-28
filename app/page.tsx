@@ -37,7 +37,10 @@ const Builder = () => {
     const handleCreateMessage = async (finalData: User) => {
         try {
             const urlEndpoint = await createMessage(finalData);
-            setMessageUrl("http://localhost:3000/" + urlEndpoint);
+            if (!urlEndpoint) {
+                throw new Error('No url endpoint')
+            }
+            setMessageUrl(process.env.API_URL + '/' + urlEndpoint);
         } catch {
             setErrorMessage(ERROR_MESSAGES.errorCreating);
             setTimeout(() => {

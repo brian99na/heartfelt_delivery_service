@@ -4,12 +4,14 @@ import { User, UserResponse } from "@/app/utils/types";
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
+const apiUrl = process.env.API_URL
+
 export const createMessage = async (data: User): Promise<null | string> => {
     if (!data) {
         throw new Error('No data was provided')
     }
 
-    const response = await fetch("http://localhost:3000/api/users", {
+    const response = await fetch(`${apiUrl}/api/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -31,7 +33,7 @@ export const createMessage = async (data: User): Promise<null | string> => {
 
 export const fetchUserData = async (userId: string): Promise<UserResponse> => {
     try {
-        const response = await fetch(`http://localhost:3000/api/users?userId=${userId}`, {
+        const response = await fetch(`${apiUrl}/api/users?userId=${userId}`, {
             headers: {
                 Accept: "application/json",
                 method: "GET",
