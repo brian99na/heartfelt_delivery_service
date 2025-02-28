@@ -10,13 +10,14 @@ interface PageProps {
     };
 }
 
-const Page: React.FC<PageProps> = ({ params }) => {
+const Page: React.FC<PageProps> = async ({ params }) => {
+    const {userId} = await params
     return (
         <div
             className={clsx(styles.mainContainer, "font-PixelArial", "text-xs")}
         >
             <Navbar />
-            <Desktop userId={params.userId} />
+            <Desktop userId={userId} />
         </div>
     );
 };

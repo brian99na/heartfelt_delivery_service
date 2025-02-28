@@ -5,9 +5,10 @@ import { PlayPause } from "@/app/utils/types";
 
 interface RecordProps {
     playPause: PlayPause;
+    audioRef: React.RefObject<HTMLAudioElement>;
 }
 
-const Record = ({ playPause }: RecordProps) => {
+const Record = ({ playPause, audioRef }: RecordProps) => {
     const [initialPause, setInitialPause] = React.useState<boolean>(false)
 
     React.useEffect(() => {
@@ -19,10 +20,9 @@ const Record = ({ playPause }: RecordProps) => {
     return (
         <div className="w-[80%] aspect-square border-[1px] border-black rounded-3xl flex justify-center items-center relative bg-btnBackground">
             <div
-                style={{animationPlayState: initialPause && playPause === PlayPause.PLAY ? "running" : "paused" }}
+                style={{animationPlayState: initialPause && playPause === PlayPause.PLAY ? "running" : "paused", transform: `rotate(${audioRef.current?.currentTime * 8}deg)`}}
                 className={clsx(
-                    "w-[80%] aspect-square bg-black rounded-full flex justify-center items-center relative",
-                    styles.animateRecord
+                    "w-[80%] aspect-square bg-black rounded-full flex justify-center items-center relative transition duration-500 linear",
                 )}
             >
                 <div className="w-[40%] aspect-square bg-black rounded-full flex justify-center items-center z-[2] p-2">

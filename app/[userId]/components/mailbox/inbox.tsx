@@ -36,6 +36,8 @@ const Inbox = ({ handleMailClick, mailClicked }: InboxProps) => {
         if (password) {
             setShowPassword(true);
             setMessage(MAILBOX_ENTER_PASSWORD);
+        } else {
+            handleMailClick();
         }
     };
 

@@ -29,7 +29,6 @@ export const useDrag = ({ ref, calculateFor = "topLeft" }) => {
 
         return;
       }
-
       setFinalPosition({
         x: Math.min(Math.max(0, x), window.innerWidth - width),
         y: Math.min(Math.max(0, y), window.innerHeight - height)
@@ -79,16 +78,13 @@ export const useDrag = ({ ref, calculateFor = "topLeft" }) => {
       if (!isDragging || !draggableElement) return;
 
       evt.preventDefault();
-
       const { clientX, clientY } = evt;
       const position = {
         x: dragInfo.startX - clientX,
-        y: dragInfo.startY - clientY
+        y: dragInfo.startY - clientY + 32
       };
-
       const { top, left, width, height } = dragInfo;
-
-      updateFinalPosition(width, height, left - position.x, top - position.y < 32 ? 32 : top - position.y);
+      updateFinalPosition(width, height, left - position.x, top - position.y);
     },
     [isDragging, dragInfo, ref, updateFinalPosition]
   );
@@ -101,7 +97,6 @@ export const useDrag = ({ ref, calculateFor = "topLeft" }) => {
       width: boundingWidth,
       height: boundingHeight
     } = draggableElement.getBoundingClientRect();
-
     updateFinalPosition(
       width ?? boundingWidth,
       height ?? boundingHeight,

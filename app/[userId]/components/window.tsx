@@ -25,7 +25,7 @@ const Window = (props: React.PropsWithChildren<WindowProps>) => {
     };
 
     const windowLocationAndSize = windowDetailMapping[app];
-
+    console.log(position);
     return (
         <div
             className={clsx(
