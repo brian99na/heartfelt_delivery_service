@@ -1,34 +1,44 @@
 import type { Metadata } from "next";
 import { DotGothic16, Silkscreen } from "next/font/google";
-import localFont from 'next/font/local'
-import './globals.css'
+import localFont from "next/font/local";
+import "./globals.css";
 
 export const PixelArial = localFont({
-  src: '../public/fonts/PixelArial.ttf',
-  variable: '--font-PixelArial',
-  display: 'swap'
-})
+    src: "../public/fonts/PixelArial.ttf",
+    variable: "--font-PixelArial",
+    display: "swap",
+});
 
-export const DotGothic = DotGothic16({weight: '400', variable: '--font-Dotgothic', display: 'swap'})
-export const SilkscreenFont = Silkscreen({weight: '400', variable: '--font-Silkscreen', display: 'swap'})
+export const DotGothic = DotGothic16({
+    weight: "400",
+    variable: "--font-Dotgothic",
+    subsets: ["latin"],
+    display: "swap",
+});
+export const SilkscreenFont = Silkscreen({
+    weight: "400",
+    variable: "--font-Silkscreen",
+    subsets: ["latin"],
+    display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Heartfelt Delivery Service",
-  description: "Your one stop shop for all things heartfelt",
+    title: "Heartfelt Delivery Service",
+    description: "Your one stop shop for all things heartfelt",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${DotGothic.variable} ${PixelArial.variable} ${SilkscreenFont.variable} antialiased overflow-hidden`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body
+                className={`${DotGothic.variable} ${PixelArial.variable} ${SilkscreenFont.variable} antialiased overflow-hidden`}
+            >
+                {children}
+            </body>
+        </html>
+    );
 }
