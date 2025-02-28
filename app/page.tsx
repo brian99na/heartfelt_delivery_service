@@ -34,13 +34,15 @@ const Builder = () => {
         undefined
     );
 
+    const apiUrl = process.env.API_URL
+
     const handleCreateMessage = async (finalData: User) => {
         try {
             const urlEndpoint = await createMessage(finalData);
             if (!urlEndpoint) {
                 throw new Error('No url endpoint')
             }
-            setMessageUrl(process.env.API_URL + '/' + urlEndpoint);
+            setMessageUrl(apiUrl + '/' + urlEndpoint);
         } catch {
             setErrorMessage(ERROR_MESSAGES.errorCreating);
             setTimeout(() => {

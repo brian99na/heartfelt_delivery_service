@@ -47,12 +47,12 @@ const CompletionSlide = () => {
                         >
                             <Typewriter
                                 typeSpeed={40 + idx * 18}
-                                key={idx}
+                                key={'type1' + idx}
                                 words={[COMPLETION_SLIDE_STATUSES[idx]]}
                             />
                             <Typewriter
                                     typeSpeed={80 + idx * 18}
-                                    key={idx}
+                                    key={'type2' + idx}
                                     words={[iconAndStatus[idx]]}
                                 />
                         </div>
