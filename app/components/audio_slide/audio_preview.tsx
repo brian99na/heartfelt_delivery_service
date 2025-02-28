@@ -52,13 +52,14 @@ const AudioPreview = () => {
 
     const handleAudioError = () => {
         setAudioError(true);
-        handlePlayPause()
+        handlePlayPause();
     };
 
     React.useEffect(() => {
         if (audioLink) {
             handlePlayPause();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [audioLink]);
 
     return (
@@ -70,7 +71,7 @@ const AudioPreview = () => {
                 </div>
             )}
             <div className="w-[50%] flex justify-center items-center border-r-[1px] border-black">
-                <Record playPause={playPause} />
+                <Record playPause={playPause} currentTime={currentTime} />
             </div>
             <div className="w-[50%] flex justify-center items-center">
                 <audio
@@ -123,7 +124,6 @@ const AudioPreview = () => {
                         >
                             <AudioBar
                                 contentRef={audioRef}
-                                playContent={playPause === PlayPause.PLAY}
                                 showLetter={false}
                                 rounded={true}
                             />

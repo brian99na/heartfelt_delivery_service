@@ -4,14 +4,12 @@ import Navbar from "./components/navbar";
 import clsx from "clsx";
 import Desktop from "./components/desktop";
 
-interface PageProps {
-    params: {
-        userId: string;
-    };
-}
-
-const Page: React.FC<PageProps> = async ({ params }) => {
-    const {userId} = await params
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ userId: string }>;
+}) {
+    const { userId } = await params;
     return (
         <div
             className={clsx(styles.mainContainer, "font-PixelArial", "text-xs")}
@@ -20,6 +18,4 @@ const Page: React.FC<PageProps> = async ({ params }) => {
             <Desktop userId={userId} />
         </div>
     );
-};
-
-export default Page;
+}

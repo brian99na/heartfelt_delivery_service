@@ -7,14 +7,12 @@ import musicStyles from "../music/music_window.module.css";
 
 interface AudioBar {
     contentRef: React.RefObject<HTMLVideoElement | HTMLAudioElement | null>;
-    playContent: boolean;
     showLetter: boolean;
     rounded?: boolean;
 }
 
 const AudioBar = ({
     contentRef,
-    playContent,
     showLetter,
     rounded,
 }: AudioBar) => {

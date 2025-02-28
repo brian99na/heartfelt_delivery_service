@@ -38,7 +38,7 @@ const Builder = () => {
         try {
             const urlEndpoint = await createMessage(finalData);
             setMessageUrl("http://localhost:3000/" + urlEndpoint);
-        } catch (err) {
+        } catch {
             setErrorMessage(ERROR_MESSAGES.errorCreating);
             setTimeout(() => {
                 setErrorMessage(undefined);

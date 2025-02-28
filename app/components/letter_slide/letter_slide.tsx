@@ -1,6 +1,6 @@
 import React from "react";
 import { BuilderContext } from "../builder_context/BuilderContext";
-import { Apps, BuildStatus } from "@/app/utils/types";
+import { BuildStatus } from "@/app/utils/types";
 
 const LetterBuilder = () => {
     const {
@@ -67,6 +67,7 @@ const LetterBuilder = () => {
 
     React.useEffect(() => {
         evaluateComplete();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [header, paragraph, footer]);
 
     return (

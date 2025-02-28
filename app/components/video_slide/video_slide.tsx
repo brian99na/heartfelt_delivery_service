@@ -14,7 +14,7 @@ const VideoBuilder = () => {
     } = React.useContext(BuilderContext);
     const [videoEnabled, setVideoEnabled] = React.useState(false);
     const videoLinkRef = React.useRef<HTMLInputElement>(null);
-    const handleUseVideo = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleUseVideo = () => {
         setFinalData((prev) => {
             return {
                 ...prev,
@@ -74,6 +74,7 @@ const VideoBuilder = () => {
 
     React.useEffect(() => {
         evaluateComplete();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [videoEnabled, videoLink]);
 
     return (

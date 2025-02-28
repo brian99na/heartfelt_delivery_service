@@ -18,9 +18,8 @@ const Desktop = ({ userId }: { userId: string }) => {
 
     const getUserData = async () => {
         const userData = await fetchUserData(userId);
-        const formattedData = formatDataToUser(userData)
-        console.log(formattedData)
-        setUser(formattedData)
+        const formattedData = formatDataToUser(userData);
+        setUser(formattedData);
     };
 
     const handleEmptyClick = () => {
@@ -35,14 +34,20 @@ const Desktop = ({ userId }: { userId: string }) => {
                 setWindowsOpen([...windowsOpen, Apps.MUSIC]);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allowAudio]);
 
     React.useEffect(() => {
         getUserData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-        <div className={clsx("h-full flex flex-col justify-start items-start relative")}>
+        <div
+            className={clsx(
+                "h-full flex flex-col justify-start items-start relative"
+            )}
+        >
             <DesktopIcon
                 iconName={Apps.MAIL}
                 setSelectedApp={setSelectedApp}

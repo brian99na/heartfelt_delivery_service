@@ -21,13 +21,13 @@ const Window = () => {
         errorMessage,
     } = React.useContext(BuilderContext);
     const slides = [
-        <LandingSlide />,
-        <MailBuilder />,
-        <VideoBuilder />,
-        <AudioBuilder />,
-        <LetterBuilder />,
-        <CompletionSlide />,
-        <SubmittedSlide />,
+        <LandingSlide key={'landingSlide'}/>,
+        <MailBuilder key={'mailSlide'}/>,
+        <VideoBuilder key={'videoSlide'}/>,
+        <AudioBuilder key={'audioSlide'}/>,
+        <LetterBuilder key={'letterSlide'}/>,
+        <CompletionSlide key={'completionSlide'}/>,
+        <SubmittedSlide key={'submittedSlide'}/>,
     ];
 
     const handlePageNavigation = (value: number) => {
@@ -70,6 +70,7 @@ const Window = () => {
                         style={{
                             display: idx === currentSlide ? "block" : "none",
                         }}
+                        key={idx}
                     >
                         {slide}
                     </div>

@@ -58,7 +58,6 @@ const MailWindow = () => {
                         <div className="absolute bottom-[12px] left-[12px]">
                             <AudioBar
                                 contentRef={videoRef}
-                                playContent={playVideo}
                                 showLetter={showLetter}
                             />
                         </div>

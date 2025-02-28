@@ -1,6 +1,6 @@
 "use server"
 
-import { User } from "@/app/utils/types";
+import { User, UserResponse } from "@/app/utils/types";
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
@@ -29,7 +29,7 @@ export const createMessage = async (data: User): Promise<null | string> => {
     return null
 }
 
-export const fetchUserData = async (userId: string): Promise<User> => {
+export const fetchUserData = async (userId: string): Promise<UserResponse> => {
     try {
         const response = await fetch(`http://localhost:3000/api/users?userId=${userId}`, {
             headers: {
@@ -43,8 +43,7 @@ export const fetchUserData = async (userId: string): Promise<User> => {
         } else {
             throw new Error('no response')
         }
-    } catch (error) {
-        console.log('testing', error)
+    } catch {
         revalidatePath('/')
         redirect('/')
     }

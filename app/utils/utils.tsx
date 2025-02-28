@@ -1,7 +1,7 @@
 import MailWindow from "../[userId]/components/mailbox/mail_window";
 import MusicWindow from "../[userId]/components/music/music_window";
 import Trash from "../[userId]/components/trash/trash";
-import { Apps, User } from "./types";
+import { Apps, User, UserResponse } from "./types";
 
 export const getWindow = (app: Apps) => {
     const windowMapping = {
@@ -32,7 +32,7 @@ export const isValidUrl = (url?: string) => {
     return url ? pattern.test(url) : false;
 };
 
-export const formatDataToUser = (data: any): User => {
+export const formatDataToUser = (data: UserResponse): User => {
     return {
         video: {
             videoLink: data?.video?.videoLink ?? undefined,

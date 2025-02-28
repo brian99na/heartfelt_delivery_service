@@ -103,6 +103,7 @@ const AudioBuilder = () => {
 
     React.useEffect(() => {
         evaluateComplete();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [audioEnabled, audioLink, audioArtist, audioTitle]);
 
     return (

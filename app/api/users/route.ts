@@ -30,8 +30,8 @@ export const GET = async (request: Request) => {
         user['video'] = video
         user['audio'] = audio
         return new NextResponse(JSON.stringify(user), {status: 200})
-    } catch (err: any) {
-        return new NextResponse('Error fetching user' + err.message, {status: 500})
+    } catch (err: unknown) {
+        return new NextResponse('Error fetching user: Error - ' + JSON.stringify(err), {status: 500})
     }
 }
 
@@ -56,7 +56,7 @@ export const POST = async (request: Request) => {
         await newAudio.save()
         await newUser.save()
         return new NextResponse(JSON.stringify({message: 'User is created', user: newUser}), {status: 200})
-    } catch (err: any) {
-        return new NextResponse('Error creating users' + err.message, {status: 500})
+    } catch (err: unknown) {
+        return new NextResponse('Error creating users: Error - ' + JSON.stringify(err), {status: 500})
     }
 }

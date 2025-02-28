@@ -1,5 +1,5 @@
 import { PlayPause } from "@/app/utils/types";
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import mainStyles from "../../main.module.css";
 import musicStyles from "./music_window.module.css";
 import clsx from "clsx";
@@ -15,7 +15,12 @@ const MusicWindow = () => {
         PlayPause.PAUSE
     );
     const [currentTime, setCurrentTime] = React.useState(0);
-    const { allowAudio, user: { audio: { audioLink, audioTitle, audioArtist }} } = React.useContext(WindowContext);
+    const {
+        allowAudio,
+        user: {
+            audio: { audioLink, audioTitle, audioArtist },
+        },
+    } = React.useContext(WindowContext);
 
     const handlePlayPause = () => {
         if (playPause === PlayPause.PAUSE) {
@@ -49,12 +54,13 @@ const MusicWindow = () => {
         if (allowAudio) {
             handlePlayPause();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allowAudio]);
 
     return (
         <div className="w-full h-[275px] flex justify-center items-center">
             <div className="w-[50%] flex justify-center items-center border-r-[1px] border-black">
-                <Record playPause={playPause} audioRef={audioRef} />
+                <Record playPause={playPause} currentTime={currentTime} />
             </div>
             <div className="w-[50%] flex justify-center items-center">
                 <audio
@@ -99,10 +105,14 @@ const MusicWindow = () => {
                         >
                             {playPause === PlayPause.PAUSE ? "▶" : "⏸︎"}
                         </button>
-                        <div className={clsx("h-[100%]", musicStyles.roundedRight)}>
+                        <div
+                            className={clsx(
+                                "h-[100%]",
+                                musicStyles.roundedRight
+                            )}
+                        >
                             <AudioBar
                                 contentRef={audioRef}
-                                playContent={playPause === PlayPause.PLAY}
                                 showLetter={false}
                                 rounded={true}
                             />

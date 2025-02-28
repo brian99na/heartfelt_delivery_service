@@ -3,7 +3,6 @@ import React from 'react'
 
 const Navbar = () => {
   const day = new Date().toDateString();
-  console.log(day)
   
   return (
     <div className='disableHighlight border-b-[1px] border-black flex justify-between font-Silkscreen text-lg'>

@@ -21,9 +21,8 @@ const connect = async () => {
             bufferCommands: true
         })
         console.log('connected')
-    } catch (err: any) {
-        console.log('Error: ', err)
-        throw new Error(err)
+    } catch (err: unknown) {
+        throw new Error(JSON.stringify(err))
     }
 }
 
