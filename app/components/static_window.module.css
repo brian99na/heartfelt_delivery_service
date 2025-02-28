@@ -1,0 +1,7 @@
+.slideBtn {
+    padding: 10px 40px;
+}
+
+.slideBtn:hover:enabled {
+    background-color: #f1f1f1;
+}

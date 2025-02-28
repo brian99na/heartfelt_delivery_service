@@ -11,7 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        window: "var(--window)",
+        btnBackground: "var(--btnBackground)",
       },
+      fontFamily: {
+        DotGothic: ['var(--font-Dotgothic)'],
+        PixelArial: ['var(--font-PixelArial)'],
+        Silkscreen: ['var(--font-Silkscreen)'],
+      }
     },
   },
   plugins: [],

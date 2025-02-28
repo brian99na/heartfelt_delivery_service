@@ -1,0 +1,27 @@
+.mainContainer {
+    background: 'var('--background')';
+    image-rendering: pixelated;
+    height: 100vh;
+}
+
+.slider {
+    -webkit-appearance: none;
+    background: black;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 4px;
+    margin: 0 8px;
+}
+
+.slider::-webkit-slider-runnable-track {
+    height: 1px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -7px; /* Centers thumb on the track */
+    background-color: black;
+    height: 16px;
+    width: 6px;    
+}

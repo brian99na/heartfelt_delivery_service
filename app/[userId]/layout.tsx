@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import "./globals.css";
 import { DotGothic16, Silkscreen } from "next/font/google";
 import localFont from 'next/font/local'
-import './globals.css'
 
 export const PixelArial = localFont({
-  src: '../public/fonts/PixelArial.ttf',
+  src: '../../public/fonts/PixelArial.ttf',
   variable: '--font-PixelArial',
   display: 'swap'
 })

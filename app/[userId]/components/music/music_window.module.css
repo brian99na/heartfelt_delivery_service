@@ -1,0 +1,57 @@
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -7.5px; /* Centers thumb on the track */
+    background-color: #ededed;
+    height: 16px;
+    width: 16px;   
+    border-radius: 10px; 
+    border: 1px solid black;
+}
+
+.slider {
+    width: 100%;
+}
+
+.recordAccents {
+    background-image:
+        linear-gradient(120deg, transparent 50%, black 50%),
+        linear-gradient(140deg, black 50%, var(--btnBackground) 50%);
+}
+
+.animateRecord {
+    animation: 6s recordAnimation infinite linear;
+}
+
+.animateHand {
+    transition-timing-function: steps(16, end);
+    animation: 1s linear forwards handAnimation;
+}
+
+.roundedLeft {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.roundedRight {
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+@keyframes recordAnimation {
+    0% {
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(359deg)
+    }
+}
+
+@keyframes handAnimation {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(10deg)
+    }
+}
