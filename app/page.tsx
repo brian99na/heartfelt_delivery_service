@@ -9,9 +9,6 @@ import AudioPreview from "./components/audio_slide/audio_preview";
 import { createMessage } from "@/lib/api/actions";
 import { ERROR_MESSAGES } from "./strings";
 
-const apiUrl = process.env.API_URL;
-console.log(apiUrl);
-
 const Builder = () => {
     const [openWindows, setOpenWindows] = React.useState<Apps[]>([]);
     const [finalData, setFinalData] = React.useState<User>({
@@ -36,6 +33,7 @@ const Builder = () => {
     const [errorMessage, setErrorMessage] = React.useState<string | undefined>(
         undefined
     );
+    const apiUrl = process.env.API_URL;
 
     const handleCreateMessage = async (finalData: User) => {
         try {
