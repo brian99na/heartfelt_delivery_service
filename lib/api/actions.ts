@@ -20,7 +20,7 @@ export const createMessage = async (data: User): Promise<null | string> => {
     });
 
     if (response.status !== 200) {
-        throw new Error("Failed to create user");
+        throw new Error(`Failed to create user ${response}`);
     }
 
     if (response) {

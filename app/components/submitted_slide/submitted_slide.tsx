@@ -32,14 +32,14 @@ const SubmittedSlide = () => {
                     </p>
                     <div
                         onClick={handleLinkClick}
-                        className="flex justify-center items-center bg-white rounded-lg border-[1px] border-gray-200 cursor-pointer hover:bg-slate-50"
+                        className="flex justify-center items-center bg-white rounded-lg border-[1px] border-gray-200 cursor-pointer hover:bg-slate-50 w-full"
                     >
-                        <h1 className="p-4 ">{messageUrl}</h1>
+                        <h1 className="p-4 overflow-hidden overflow-ellipsis w-full">{messageUrl}</h1>
                         <div className="p-4 text-xl font-Silkscreen border-l-[1px] border-gray-200 ">
                             ✉️
                         </div>
                     </div>
-                    <p>Copy and send your link the the recipient!</p>
+                    <p className="text-center">Click the link above to copy it to your clipboard and send it recipient!</p>
                 </>
             )}
             {isCopied && (

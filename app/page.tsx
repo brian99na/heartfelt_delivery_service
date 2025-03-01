@@ -9,6 +9,9 @@ import AudioPreview from "./components/audio_slide/audio_preview";
 import { createMessage } from "@/lib/api/actions";
 import { ERROR_MESSAGES } from "./strings";
 
+const apiUrl = process.env.API_URL;
+console.log(apiUrl);
+
 const Builder = () => {
     const [openWindows, setOpenWindows] = React.useState<Apps[]>([]);
     const [finalData, setFinalData] = React.useState<User>({
@@ -34,15 +37,13 @@ const Builder = () => {
         undefined
     );
 
-    const apiUrl = process.env.API_URL
-
     const handleCreateMessage = async (finalData: User) => {
         try {
             const urlEndpoint = await createMessage(finalData);
             if (!urlEndpoint) {
-                throw new Error('No url endpoint')
+                throw new Error("No url endpoint");
             }
-            setMessageUrl(apiUrl + '/' + urlEndpoint);
+            setMessageUrl(apiUrl + "/" + urlEndpoint);
         } catch {
             setErrorMessage(ERROR_MESSAGES.errorCreating);
             setTimeout(() => {
@@ -98,7 +99,7 @@ const Builder = () => {
                     setBuildStatus,
                     handleCreateMessage,
                     messageUrl,
-                    errorMessage
+                    errorMessage,
                 }}
             >
                 <StaticWindow />
