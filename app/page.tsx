@@ -8,6 +8,9 @@ import { BuilderContext } from "./components/builder_context/BuilderContext";
 import AudioPreview from "./components/audio_slide/audio_preview";
 import { createMessage } from "@/lib/api/actions";
 import { ERROR_MESSAGES } from "./strings";
+import clsx from "clsx";
+import styles from "./[userId]/components/desktop.module.css";
+import Image from "next/image";
 
 const Builder = () => {
     const [openWindows, setOpenWindows] = React.useState<Apps[]>([]);
@@ -115,6 +118,26 @@ const Builder = () => {
                     );
                 })}
             </BuilderContext.Provider>
+            <div
+                className={clsx(
+                    "h-full w-full absolute pointer-events-none",
+                    styles.desktopBg
+                )}
+            />
+            <Image
+                src={"/icons/shoes.gif"}
+                alt="delivery shoes ascii icon"
+                width={550}
+                height={550}
+                className="disableHighlight absolute bottom-0 right-0 pointer-events-none z-[-1]"
+            />
+            <Image
+                src={"/icons/shoes.gif"}
+                alt="delivery shoes ascii icon"
+                width={550}
+                height={550}
+                className="disableHighlight absolute top-0 left-0 pointer-events-none z-[-1]"
+            />
         </div>
     );
 };

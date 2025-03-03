@@ -1,0 +1,9 @@
+.desktopBg {
+    background: url("/blue-bg.jpg") no-repeat center fixed;
+    opacity: .1;
+    background-blend-mode:overlay;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

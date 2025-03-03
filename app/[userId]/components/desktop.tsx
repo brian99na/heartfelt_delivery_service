@@ -9,6 +9,8 @@ import clsx from "clsx";
 import { WindowContext } from "./windowContext/WindowContext";
 import { defaultUser } from "@/app/utils/constants";
 import { fetchUserData } from "@/lib/api/actions";
+import styles from "./desktop.module.css";
+import Image from "next/image";
 
 const Desktop = ({ userId }: { userId: string }) => {
     const [selectedApp, setSelectedApp] = React.useState<Apps | null>(null);
@@ -85,7 +87,14 @@ const Desktop = ({ userId }: { userId: string }) => {
             </WindowContext.Provider>
             <div
                 onClick={handleEmptyClick}
-                className="h-full w-full absolute bg-transparent z-0"
+                className={clsx("h-full w-full absolute z-0", styles.desktopBg)}
+            />
+            <Image
+                src={"/icons/shoes.gif"}
+                alt="delivery shoes ascii icon"
+                width={750}
+                height={750}
+                className="disableHighlight absolute bottom-0 right-0 pointer-events-none"
             />
         </div>
     );

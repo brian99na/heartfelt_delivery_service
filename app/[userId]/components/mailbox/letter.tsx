@@ -16,7 +16,7 @@ const Letter = ({ showLetter }: LetterProps) => {
                 "opacity-0 pointer-events-none p-10 overflow-scroll",
                 {
                     [styles.fadeIn]: showLetter,
-                }
+                },
             )}
         >
             <h1 className="font-Silkscreen text-3xl pb-2">

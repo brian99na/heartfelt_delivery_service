@@ -2,17 +2,17 @@ import { Apps, MailTypes, User } from "./types";
 
 export const iconMapping = {
     [Apps.MAIL]: {
-        src: "/icons/mailbox.png",
+        src: "/icons/dithered-mailbox.png",
         alt: "mailbox icon",
         text: "Mail",
     },
     [Apps.MUSIC]: {
-        src: "/icons/recordplayer.png",
+        src: "/icons/dithered-recordplayer.png",
         alt: "record player icon",
         text: "Music",
     },
     [Apps.TRASH]: {
-        src: "/icons/trash.png",
+        src: "/icons/dithered-trash.png",
         alt: "trashcan icon",
         text: "Trash",
     },

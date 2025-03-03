@@ -51,7 +51,7 @@ const DesktopIcon = (props: React.PropsWithChildren<DesktopIconProps>) => {
                 alt={alt}
                 width={70}
                 height={70}
-                className="aspect-square p-2"
+                className="aspect-square p-2 blend-mode-luminosity"
             />
             <div
                 className={clsx("pt-0 pb-0 pl-1 pr-1", {

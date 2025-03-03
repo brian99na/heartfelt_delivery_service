@@ -10,6 +10,8 @@ import CompletionSlide from "./completion_slide/completion_slide";
 import styles from "./static_window.module.css";
 import { BuilderContext } from "./builder_context/BuilderContext";
 import SubmittedSlide from "./submitted_slide/submitted_slide";
+import Background from "../shared/background";
+import Image from "next/image";
 
 const Window = () => {
     const {
@@ -21,13 +23,13 @@ const Window = () => {
         errorMessage,
     } = React.useContext(BuilderContext);
     const slides = [
-        <LandingSlide key={'landingSlide'}/>,
-        <MailBuilder key={'mailSlide'}/>,
-        <VideoBuilder key={'videoSlide'}/>,
-        <AudioBuilder key={'audioSlide'}/>,
-        <LetterBuilder key={'letterSlide'}/>,
-        <CompletionSlide key={'completionSlide'}/>,
-        <SubmittedSlide key={'submittedSlide'}/>,
+        <LandingSlide key={"landingSlide"} />,
+        <MailBuilder key={"mailSlide"} />,
+        <VideoBuilder key={"videoSlide"} />,
+        <AudioBuilder key={"audioSlide"} />,
+        <LetterBuilder key={"letterSlide"} />,
+        <CompletionSlide key={"completionSlide"} />,
+        <SubmittedSlide key={"submittedSlide"} />,
     ];
 
     const handlePageNavigation = (value: number) => {
@@ -62,7 +64,21 @@ const Window = () => {
                 <div className="w-4 h-4 aspect-square border-[1px] border-black flex justify-center items-center absolute top-1 left-1 m-1 cursor-pointer hover:text-white hover:bg-black">
                     <div className="top-[-8.5px] absolute text-lg">✕</div>
                 </div>
-                <div className="font-Silkscreen text-base">Message Builder</div>
+                <div className="font-Silkscreen text-base flex gap-2">
+                    <Image
+                        src={"/icons/deliveryshoes.png"}
+                        alt="delivery shoes icon"
+                        width={20}
+                        height={20}
+                    />
+                    Message Builder
+                    <Image
+                        src={"/icons/deliveryshoes.png"}
+                        alt="delivery shoes icon"
+                        width={20}
+                        height={20}
+                    />
+                </div>
             </div>
             {slides.map((slide, idx) => {
                 return (
@@ -115,6 +131,7 @@ const Window = () => {
                     )}
                 </div>
             )}
+            <Background />
         </div>
     );
 };

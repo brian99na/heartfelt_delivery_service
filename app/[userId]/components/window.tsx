@@ -2,8 +2,12 @@
 import React from "react";
 import clsx from "clsx";
 import { Apps } from "../../utils/types";
-import { windowDetailMapping, zMapping } from "../../utils/constants";
+import {
+    windowDetailMapping,
+    zMapping,
+} from "../../utils/constants";
 import { useDrag } from "../../hooks/useDrag";
+import mainStyles from "../main.module.css";
 
 interface WindowProps {
     setWindowsOpen: React.Dispatch<React.SetStateAction<Apps[]>>;
@@ -28,7 +32,7 @@ const Window = (props: React.PropsWithChildren<WindowProps>) => {
     return (
         <div
             className={clsx(
-                "absolute bg-window border-[1px] border-black",
+                "absolute bg-window border-[1px] border-black overflow-hidden",
                 zMapping[zIndex],
                 windowLocationAndSize
             )}
@@ -55,6 +59,12 @@ const Window = (props: React.PropsWithChildren<WindowProps>) => {
                 <div>{app}</div>
             </div>
             {children}
+            <div
+                className={clsx(
+                    "absolute w-full h-full top-0 left-0 pointer-events-none rotate(90)",
+                    mainStyles.windowBg
+                )}
+            />
         </div>
     );
 };

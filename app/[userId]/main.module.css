@@ -13,6 +13,16 @@
     margin: 0 8px;
 }
 
+.windowBg {
+    background: url("/colorfultexture.jpg") no-repeat center center;
+    opacity: 0.14;
+    background-blend-mode:screen;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .slider::-webkit-slider-runnable-track {
     height: 1px;
 }

@@ -59,8 +59,9 @@ const MusicWindow = () => {
 
     return (
         <div className="w-full h-[275px] flex justify-center items-center">
-            <div className="w-[50%] flex justify-center items-center border-r-[1px] border-black">
+            <div className="w-[50%] flex justify-center items-center border-r-[1px] border-black relative">
                 <Record playPause={playPause} currentTime={currentTime} />
+                <div className="w-[360px] h-[259px] origin-left rotate-[135deg] right-[-96%] bottom-[-14%] aspect-square z-[-1] flex justify-center items-center bg-[#dbe5ef] absolute"/>
             </div>
             <div className="w-[50%] flex justify-center items-center">
                 <audio
