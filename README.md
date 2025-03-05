@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚚 **Heartfelt Delivery Service** 🚚
 
-## Getting Started
+Welcome to **Heartfelt Delivery Service** — a nostalgic, fun, and creative way to send your loved ones a heartfelt message! ✨ This web app lets you express your feelings through a **vintage PC interface** and deliver a personalized message, complete with a **song** and **video**. 🎶📹
 
-First, run the development server:
+---
+
+### **What is Heartfelt Delivery Service?**
+
+Heartfelt Delivery Service is a unique web application that allows you to create and send a personalized message to someone special. The site mimics a **retro vintage PC desktop interface**, creating a fun and sentimental experience. You can:
+
+- Write a **heartfelt message** 📝
+- Attach a **video** 🎥
+- Add a **song** 🎶
+
+At the end, your recipient will be greeted with a warm, customized message that brings both nostalgia and joy. 💖
+
+---
+
+### **Features**
+
+✨ **Retro Vintage Interface**: Navigate through a unique PC-inspired interface that gives a touch of nostalgia.
+
+🎬 **Attach Media**: Add a video and a song to make your message extra special.
+
+💌 **Personalized Messages**: Create heartfelt messages that will be displayed with flair!
+
+---
+
+### **How It Works**
+
+1. **Go to** [heartfelt.delivery](https://heartfelt.delivery) 🌐
+2. **Fill out the details**: Write a message, upload a video, and pick a song 🎶
+3. **Send your message**: Your recipient will be greeted with a retro desktop interface and your message! Copy the link provided at the end of the building process and send it to your recipient! 🎁
+
+---
+
+### **Tech Stack** 🛠️
+
+- **Frontend** Next.js / React / TypeScript
+- **Backend** Next.js Serverless API Routes
+- **Database** MongoDB
+
+---
+
+### **Installation** 🧑‍💻
+
+Clone this repo to your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/brian99na/heartfelt_delivery_service.git
+cd heartfelt_delivery_service
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+Copy
+npm install
+```
+Run the app locally:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+Copy
+npm run dev
+```
+Now open your browser and navigate to http://localhost:3000.
