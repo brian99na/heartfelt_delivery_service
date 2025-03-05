@@ -6,9 +6,8 @@
 
 .windowBg {
     background: url("/colorfultexture.jpg") no-repeat center center;
-    background-color: white;
-    opacity: 0.14;
-    background-blend-mode:screen;
+    opacity: 0.12;
+    background-blend-mode:soft-light;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

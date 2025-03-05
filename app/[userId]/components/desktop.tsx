@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import DesktopIcon from "./desktop_icon";
-import { Apps, User } from "../../utils/types";
+import { Apps, FlapLocations, User } from "../../utils/types";
 import Tooltip from "./tooltip";
 import Window from "./window";
 import { formatDataToUser, getWindow } from "../../utils/utils";
 import clsx from "clsx";
 import { WindowContext } from "./windowContext/WindowContext";
-import { defaultUser } from "@/app/utils/constants";
+import { defaultUser, flapGifPlacementMapping } from "@/app/utils/constants";
 import { fetchUserData } from "@/lib/api/actions";
 import styles from "./desktop.module.css";
 import Image from "next/image";
@@ -18,6 +18,7 @@ const Desktop = ({ userId }: { userId: string }) => {
     const [allowAudio, setAllowAudio] = React.useState<boolean>(false);
     const [user, setUser] = React.useState<User>(defaultUser);
     const [zIndexes, setZIndexes] = React.useState<number[]>([1, 2, 3]);
+    const [flapGifPlacement, setFlapGifPlacement] = React.useState<FlapLocations>(FlapLocations.BOTTOMRIGHT);
 
     const getUserData = async () => {
         const userData = await fetchUserData(userId);
@@ -46,6 +47,22 @@ const Desktop = ({ userId }: { userId: string }) => {
 
     React.useEffect(() => {
         getUserData();
+
+        const interval = setInterval(() => {
+            setFlapGifPlacement((prevFlapGifPlacement: FlapLocations) => {
+                if (prevFlapGifPlacement === FlapLocations.BOTTOMRIGHT) {
+                    return FlapLocations.BOTTOMLEFT;
+                } else if (prevFlapGifPlacement === FlapLocations.BOTTOMLEFT) {
+                    return FlapLocations.TOPRIGHT;
+                } else if (prevFlapGifPlacement === FlapLocations.TOPLEFT) {
+                    return FlapLocations.TOPRIGHT;
+                } else {
+                    return FlapLocations.BOTTOMRIGHT;
+                }
+            })
+        }, 2000);
+
+        return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -121,11 +138,11 @@ const Desktop = ({ userId }: { userId: string }) => {
                 className={clsx("h-full w-full absolute z-0", styles.desktopBg)}
             />
             <Image
-                src={"/icons/shoes.gif"}
+                src={"/assets/envelope.gif"}
                 alt="delivery shoes ascii icon"
-                width={750}
-                height={750}
-                className="disableHighlight absolute bottom-0 right-0 pointer-events-none"
+                width={500}
+                height={500}
+                className={clsx("disableHighlight absolute bottom-0 right-0 pointer-events-none", flapGifPlacementMapping[flapGifPlacement])}
             />
         </div>
     );

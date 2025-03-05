@@ -126,15 +126,15 @@ const Builder = () => {
                 )}
             />
             <Image
-                src={"/icons/shoes.gif"}
-                alt="delivery shoes ascii icon"
+                src={"/assets/envelope.gif"}
+                alt="delivery envelope ascii icon"
                 width={550}
                 height={550}
                 className="disableHighlight absolute bottom-0 right-0 pointer-events-none z-[-1]"
             />
             <Image
-                src={"/icons/shoes.gif"}
-                alt="delivery shoes ascii icon"
+                src={"/assets/envelope.gif"}
+                alt="delivery envelope ascii icon"
                 width={550}
                 height={550}
                 className="disableHighlight absolute top-0 left-0 pointer-events-none z-[-1]"

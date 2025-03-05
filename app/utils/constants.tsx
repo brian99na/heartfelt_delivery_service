@@ -1,4 +1,4 @@
-import { Apps, MailTypes, User } from "./types";
+import { Apps, FlapLocations, MailTypes, User } from "./types";
 
 export const iconMapping = {
     [Apps.MAIL]: {
@@ -58,3 +58,10 @@ export const defaultUser: User = {
         footer: "testing footer",
     },
 };
+
+export const flapGifPlacementMapping: Record<FlapLocations, string> = {
+    [FlapLocations.TOPLEFT]: 'top-0 left-0',
+    [FlapLocations.TOPRIGHT]: 'top-0 right-0',
+    [FlapLocations.BOTTOMLEFT]: 'bottom-0 left-0',
+    [FlapLocations.BOTTOMRIGHT]: 'bottom-0 right-0',
+}

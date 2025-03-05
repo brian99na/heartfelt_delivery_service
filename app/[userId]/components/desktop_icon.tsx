@@ -44,7 +44,7 @@ const DesktopIcon = (props: React.PropsWithChildren<DesktopIconProps>) => {
     return (
         <div
             onClick={handleClick}
-            className="flex flex-col justify-center items-center cursor-pointer aspect-square m-2 z-[1] relative"
+            className="flex flex-col justify-center items-center cursor-pointer aspect-square m-2 z-[1] relative disableHighlight"
         >
             <Image
                 src={src}

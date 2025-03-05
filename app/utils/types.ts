@@ -77,3 +77,10 @@ export interface UserResponse extends MongoResponse {
     inbox: InboxResponse,
     letter: LetterResponse
 }
+
+export enum FlapLocations {
+    TOPLEFT = 'topLeft',
+    TOPRIGHT = 'topRight',
+    BOTTOMLEFT = 'bottomLeft',
+    BOTTOMRIGHT = 'bottomRight'
+}

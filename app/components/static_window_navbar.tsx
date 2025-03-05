@@ -14,19 +14,7 @@ const StaticWindowNavbar = () => {
                 <div className="top-[-8.5px] absolute text-lg">✕</div>
             </div>
             <div className="font-Silkscreen text-base flex gap-2">
-                <Image
-                    src={"/icons/deliveryshoes.png"}
-                    alt="delivery shoes icon"
-                    width={20}
-                    height={20}
-                />
                 Message Builder
-                <Image
-                    src={"/icons/deliveryshoes.png"}
-                    alt="delivery shoes icon"
-                    width={20}
-                    height={20}
-                />
             </div>
         </div>
     );
