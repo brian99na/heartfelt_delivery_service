@@ -5,7 +5,6 @@ import { Apps } from "../../utils/types";
 import { windowDetailMapping } from "../../utils/constants";
 import { useDrag } from "../../hooks/useDrag";
 import Background from "@/app/shared/background";
-import { getWindowPosition } from "@/app/utils/utils";
 
 interface WindowProps {
     setWindowsOpen: React.Dispatch<React.SetStateAction<Apps[]>>;
