@@ -108,9 +108,10 @@ const Builder = () => {
                     return (
                         <DraggableWindow
                             setWindowsOpen={setOpenWindows}
-                            zIndex={10 + idx}
+                            zIndexes={[10 + idx, 11, 12]}
                             app={app}
                             key={idx}
+                            setZIndexes={() => {}}
                         >
                             {app === Apps.MAIL && <VideoPreview />}
                             {app === Apps.MUSIC && <AudioPreview />}

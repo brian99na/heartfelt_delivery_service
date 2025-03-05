@@ -1,3 +1,4 @@
+"use client"
 import { isValidUrl } from "@/app/utils/utils";
 import React from "react";
 import { BuilderContext } from "../builder_context/BuilderContext";

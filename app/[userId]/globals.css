@@ -6,7 +6,7 @@
   --background: #e8f4ff;
   --foreground: #171717;
   --window: #ecfbfe;
-  --btnBackground: #e3e3e3;
+  --btnBackground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {

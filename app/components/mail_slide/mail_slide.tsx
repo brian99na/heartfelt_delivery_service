@@ -1,3 +1,4 @@
+"use client"
 import { BuildStatus, MailTypes } from "@/app/utils/types";
 import React from "react";
 import { iconMapping } from "@/app/utils/constants";

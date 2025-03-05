@@ -30,12 +30,6 @@ export const iconMapping = {
     },
 };
 
-export const zMapping: { [key: number]: string } = {
-    [1]: "z-[1]",
-    [2]: "z-[2]",
-    [3]: "z-[3]",
-};
-
 export const windowDetailMapping = {
     [Apps.MAIL]: "top-[150px] left-[150px] w-[500px] h-[500px]",
     [Apps.MUSIC]: "top-[650px] left-[500px] w-[500px] h-[300px]",

@@ -2,21 +2,19 @@
 import React from "react";
 import clsx from "clsx";
 import { Apps } from "../../utils/types";
-import {
-    windowDetailMapping,
-    zMapping,
-} from "../../utils/constants";
+import { windowDetailMapping } from "../../utils/constants";
 import { useDrag } from "../../hooks/useDrag";
-import mainStyles from "../main.module.css";
+import Background from "@/app/shared/background";
 
 interface WindowProps {
     setWindowsOpen: React.Dispatch<React.SetStateAction<Apps[]>>;
-    zIndex: number;
+    zIndexes: number[];
+    setZIndexes: React.Dispatch<React.SetStateAction<number[]>>;
     app: Apps;
 }
 
 const Window = (props: React.PropsWithChildren<WindowProps>) => {
-    const { setWindowsOpen, zIndex, app, children } = props;
+    const { setWindowsOpen, zIndexes, app, children } = props;
     const draggableRef = React.useRef(null);
     const { position, handleMouseDown } = useDrag({
         ref: draggableRef,
@@ -28,12 +26,23 @@ const Window = (props: React.PropsWithChildren<WindowProps>) => {
         });
     };
 
+    // const handleFocusWindow = () => {
+    //     setZIndexes((prevzIndexes) => {
+    //         const currMax = Math.max(...zIndexes);
+    //         prevzIndexes[currentIndex] = currMax + 1
+    //         return prevzIndexes
+    //     });
+    // };
+
+    const currentIndex = app === Apps.MAIL ? 0 : app === Apps.MUSIC ? 1 : 2;
+    const zIndex = zIndexes[currentIndex];
+
     const windowLocationAndSize = windowDetailMapping[app];
     return (
         <div
             className={clsx(
                 "absolute bg-window border-[1px] border-black overflow-hidden",
-                zMapping[zIndex],
+                `z-[${zIndex}]`,
                 windowLocationAndSize
             )}
             ref={draggableRef}
@@ -59,12 +68,7 @@ const Window = (props: React.PropsWithChildren<WindowProps>) => {
                 <div>{app}</div>
             </div>
             {children}
-            <div
-                className={clsx(
-                    "absolute w-full h-full top-0 left-0 pointer-events-none rotate(90)",
-                    mainStyles.windowBg
-                )}
-            />
+            <Background />
         </div>
     );
 };

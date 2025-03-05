@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { BuilderContext } from "../builder_context/BuilderContext";
 import { BuildStatus } from "@/app/utils/types";

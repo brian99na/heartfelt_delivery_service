@@ -4,6 +4,17 @@
     height: 100vh;
 }
 
+.windowBg {
+    background: url("/colorfultexture.jpg") no-repeat center center;
+    background-color: white;
+    opacity: 0.14;
+    background-blend-mode:screen;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .slider {
     -webkit-appearance: none;
     background: black;
@@ -13,21 +24,11 @@
     margin: 0 8px;
 }
 
-.windowBg {
-    background: url("/colorfultexture.jpg") no-repeat center center;
-    opacity: 0.14;
-    background-blend-mode:screen;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.slider::-webkit-slider-runnable-track {
+.slider::-webkit-slider-runnable-track, .slider::-webkit-scrollbar-track {
     height: 1px;
 }
 
-.slider::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb, .slider::-webkit-scrollbar-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     margin-top: -7px; /* Centers thumb on the track */

@@ -11,7 +11,7 @@ import styles from "./static_window.module.css";
 import { BuilderContext } from "./builder_context/BuilderContext";
 import SubmittedSlide from "./submitted_slide/submitted_slide";
 import Background from "../shared/background";
-import Image from "next/image";
+import StaticWindowNavbar from "./static_window_navbar";
 
 const Window = () => {
     const {
@@ -55,31 +55,7 @@ const Window = () => {
                     {errorMessage}
                 </p>
             )}
-            <div
-                className={clsx(
-                    "border-b-[1px] border-black p-1 flex justify-center",
-                    "disableHighlight"
-                )}
-            >
-                <div className="w-4 h-4 aspect-square border-[1px] border-black flex justify-center items-center absolute top-1 left-1 m-1 cursor-pointer hover:text-white hover:bg-black">
-                    <div className="top-[-8.5px] absolute text-lg">✕</div>
-                </div>
-                <div className="font-Silkscreen text-base flex gap-2">
-                    <Image
-                        src={"/icons/deliveryshoes.png"}
-                        alt="delivery shoes icon"
-                        width={20}
-                        height={20}
-                    />
-                    Message Builder
-                    <Image
-                        src={"/icons/deliveryshoes.png"}
-                        alt="delivery shoes icon"
-                        width={20}
-                        height={20}
-                    />
-                </div>
-            </div>
+            <StaticWindowNavbar />
             {slides.map((slide, idx) => {
                 return (
                     <div

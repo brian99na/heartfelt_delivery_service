@@ -17,6 +17,7 @@ const Desktop = ({ userId }: { userId: string }) => {
     const [windowsOpen, setWindowsOpen] = React.useState<Apps[]>([]);
     const [allowAudio, setAllowAudio] = React.useState<boolean>(false);
     const [user, setUser] = React.useState<User>(defaultUser);
+    const [zIndexes, setZIndexes] = React.useState<number[]>([1, 2, 3]);
 
     const getUserData = async () => {
         const userData = await fetchUserData(userId);
@@ -28,6 +29,10 @@ const Desktop = ({ userId }: { userId: string }) => {
         if (selectedApp) {
             setSelectedApp(null);
         }
+    };
+
+    const resetStates = () => {
+        setAllowAudio(false);
     };
 
     React.useEffect(() => {
@@ -43,6 +48,12 @@ const Desktop = ({ userId }: { userId: string }) => {
         getUserData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    React.useEffect(() => {
+        if (windowsOpen.length === 0) {
+            resetStates();
+        }
+    }, [windowsOpen]);
 
     return (
         <div
@@ -74,16 +85,36 @@ const Desktop = ({ userId }: { userId: string }) => {
                 setWindowsOpen={setWindowsOpen}
             />
             <WindowContext.Provider value={{ user, allowAudio, setAllowAudio }}>
-                {windowsOpen.map((app: Apps, idx) => (
+                {windowsOpen.includes(Apps.MAIL) && (
                     <Window
-                        key={"window" + idx}
                         setWindowsOpen={setWindowsOpen}
-                        app={app}
-                        zIndex={idx + 1}
+                        app={Apps.MAIL}
+                        zIndexes={zIndexes}
+                        setZIndexes={setZIndexes}
                     >
-                        {getWindow(app)}
+                        {getWindow(Apps.MAIL)}
                     </Window>
-                ))}
+                )}
+                {windowsOpen.includes(Apps.MUSIC) && (
+                    <Window
+                        setWindowsOpen={setWindowsOpen}
+                        app={Apps.MUSIC}
+                        zIndexes={zIndexes}
+                        setZIndexes={setZIndexes}
+                    >
+                        {getWindow(Apps.MUSIC)}
+                    </Window>
+                )}
+                {windowsOpen.includes(Apps.TRASH) && (
+                    <Window
+                        setWindowsOpen={setWindowsOpen}
+                        app={Apps.TRASH}
+                        zIndexes={zIndexes}
+                        setZIndexes={setZIndexes}
+                    >
+                        {getWindow(Apps.TRASH)}
+                    </Window>
+                )}
             </WindowContext.Provider>
             <div
                 onClick={handleEmptyClick}
