@@ -16,6 +16,7 @@ export const createMessage = async (data: User): Promise<null | string> => {
         headers: {
             "Content-Type": "application/json",
         },
+        cache: "no-cache",
         body: JSON.stringify(data),
     });
 
@@ -38,6 +39,7 @@ export const fetchUserData = async (userId: string): Promise<UserResponse> => {
                 Accept: "application/json",
                 method: "GET",
             },
+            cache: "no-cache",
         });
         if (response) {
             const data = await response.json();

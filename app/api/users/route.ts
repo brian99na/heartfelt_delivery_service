@@ -25,6 +25,7 @@ export const GET = async (request: Request) => {
         const letter = await Letter.findById(user.letter)
         const video = await VideoDetails.findById(user.video)
         const audio = await AudioDetails.findById(user.audio)
+        console.log(userId, user.inbox, user.letter, user.video, user.audio)
         user['inbox'] = inbox
         user['letter'] = letter
         user['video'] = video
