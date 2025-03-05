@@ -5,6 +5,7 @@ import { Apps } from "../../utils/types";
 import { windowDetailMapping } from "../../utils/constants";
 import { useDrag } from "../../hooks/useDrag";
 import Background from "@/app/shared/background";
+import { getWindowPosition } from "@/app/utils/utils";
 
 interface WindowProps {
     setWindowsOpen: React.Dispatch<React.SetStateAction<Apps[]>>;
@@ -14,11 +15,13 @@ interface WindowProps {
 }
 
 const Window = (props: React.PropsWithChildren<WindowProps>) => {
-    const { setWindowsOpen, zIndexes, app, children } = props;
+    const { setWindowsOpen, zIndexes, setZIndexes, app, children } = props;
     const draggableRef = React.useRef(null);
     const { position, handleMouseDown } = useDrag({
         ref: draggableRef,
     });
+    const currentIndex = app === Apps.MAIL ? 0 : app === Apps.MUSIC ? 1 : 2;
+    const [zIndex, setZIndex] = React.useState(zIndexes[currentIndex]);
 
     const handleWindowClose = () => {
         setWindowsOpen((windowsOpen) => {
@@ -26,23 +29,22 @@ const Window = (props: React.PropsWithChildren<WindowProps>) => {
         });
     };
 
-    // const handleFocusWindow = () => {
-    //     setZIndexes((prevzIndexes) => {
-    //         const currMax = Math.max(...zIndexes);
-    //         prevzIndexes[currentIndex] = currMax + 1
-    //         return prevzIndexes
-    //     });
-    // };
-
-    const currentIndex = app === Apps.MAIL ? 0 : app === Apps.MUSIC ? 1 : 2;
-    const zIndex = zIndexes[currentIndex];
+    const handleFocusWindow = () => {
+        const currMax = Math.max(...zIndexes);
+        const newMax = currMax + 1;
+        setZIndexes((prevzIndexes) => {
+            prevzIndexes[currentIndex] = newMax;
+            return prevzIndexes;
+        });
+        setZIndex(newMax);
+    };
 
     const windowLocationAndSize = windowDetailMapping[app];
+
     return (
         <div
             className={clsx(
-                "absolute bg-window border-[1px] border-black overflow-hidden",
-                `z-[${zIndex}]`,
+                "absolute bg-window border-[1px] border-black overflow-hidden origin-center",
                 windowLocationAndSize
             )}
             ref={draggableRef}
@@ -50,7 +52,9 @@ const Window = (props: React.PropsWithChildren<WindowProps>) => {
                 top: position.y,
                 left: position.x,
                 boxShadow: "4px 4px 1px 1px rgba(0, 0, 0, 0.2)",
+                zIndex,
             }}
+            onMouseDown={handleFocusWindow}
         >
             <div
                 onMouseDown={handleMouseDown}

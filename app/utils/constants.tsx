@@ -31,8 +31,8 @@ export const iconMapping = {
 };
 
 export const windowDetailMapping = {
-    [Apps.MAIL]: "top-[150px] left-[150px] w-[500px] h-[500px]",
-    [Apps.MUSIC]: "top-[650px] left-[500px] w-[500px] h-[300px]",
+    [Apps.MAIL]: "top-[10%] left-[150px] w-[500px] h-[500px]",
+    [Apps.MUSIC]: "top-[15%] left-[670px] w-[500px] h-[300px]",
     [Apps.TRASH]:
         "top-[50%] left-[50%] w-[500px] h-[200px] translate-x-[-50%] translate-y-[-50%]",
 };
