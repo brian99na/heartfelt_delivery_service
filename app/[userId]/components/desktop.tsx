@@ -22,7 +22,6 @@ const Desktop = ({ userId }: { userId: string }) => {
     const getUserData = async () => {
         const userData = await fetchUserData(userId);
         const formattedData = formatDataToUser(userData);
-        console.log(formattedData, userId)
         setUser(formattedData);
     };
 
