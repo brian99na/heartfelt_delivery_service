@@ -39,4 +39,5 @@
 
 .mailWindowContainer {
     scrollbar-gutter: stable both-edges;
+    scrollbar-width: 0;
 }

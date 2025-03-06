@@ -13,7 +13,7 @@ const Letter = ({ showLetter }: LetterProps) => {
     return (
         <div
             className={clsx(
-                "opacity-0 pointer-events-none p-10 overflow-scroll",
+                "opacity-0 pointer-events-none p-10 ",
                 {
                     [styles.fadeIn]: showLetter,
                 },
