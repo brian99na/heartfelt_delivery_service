@@ -1,7 +1,7 @@
 import MailWindow from "../[userId]/components/mailbox/mail_window";
 import MusicWindow from "../[userId]/components/music/music_window";
 import Trash from "../[userId]/components/trash/trash";
-import { Apps, User, UserResponse } from "./types";
+import { Apps, MailTypes, User, UserResponse } from "./types";
 
 export const getWindow = (app: Apps) => {
     const windowMapping = {
@@ -43,7 +43,7 @@ export const formatDataToUser = (data: UserResponse): User => {
             audioTitle: data?.audio?.audioTitle ?? undefined,
             audioArtist: data?.audio?.audioArtist ?? undefined,
         },
-        mailType: data.mailType,
+        mailType: data?.mailType ?? MailTypes.HEART,
         inbox: {
             password: data?.inbox?.password ?? undefined,
             hint: data?.inbox?.hint ?? undefined,

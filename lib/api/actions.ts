@@ -41,6 +41,7 @@ export const fetchUserData = async (userId: string): Promise<UserResponse> => {
             },
             cache: "no-cache",
         });
+
         if (response) {
             const data = await response.json();
             return data
